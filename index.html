@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mods Esenciales para Servidor Minecraft</title>
+    <style>
+        body {
+            font-family: 'Minecraft', Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-image: url('https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-background-behavior-1800x1012.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            color: #55FF55;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        
+        .mod-card {
+            background-color: #2d2d2d;
+            border: 2px solid #555555;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+        }
+        
+        .mod-title {
+            color: #FFAA00;
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        
+        .download-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .requisitos {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #aaaaaa;
+        }
+        
+        .advertencia {
+            color: #FF5555;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mods Esenciales para Nuestro Servidor</h1>
+        <p>Descarga estos mods necesarios para conectarte a nuestro servidor Minecraft</p>
+        
+        <div class="advertencia">
+            ⚠️ Asegúrate de instalar estos mods en la carpeta "mods" de tu cliente Minecraft
+        </div>
+        
+        <div class="mod-card">
+            <h2 class="mod-title">SecurityCraft v1.10</h2>
+            <p>Añade sistemas de seguridad avanzados como cámaras, alarmas, puertas blindadas y sistemas de protección para tus construcciones.</p>
+            <p><strong>Versión Minecraft:</strong> 1.18.2 (Forge)</p>
+            <p><strong>Tamaño:</strong> 1.7 MB</p>
+            <div class="requisitos">
+                <strong>Requisitos:</strong> Minecraft Forge 40.1.0 o superior
+            </div>
+            <a href="mods/SecurityCraft-v1.10-forge-1.18.2.jar" class="download-btn" download="SecurityCraft-v1.10.jar">Descargar SecurityCraft</a>
+        </div>
+        
+        <div class="mod-card">
+            <h2 class="mod-title">Xaero's Minimap 25.2.6</h2>
+            <p>Un minimapa ligero y configurable que muestra tu ubicación, entidades cercanas y puntos de interés marcados.</p>
+            <p><strong>Versión Minecraft:</strong> 1.18.2</p>
+            <p><strong>Tamaño:</strong> 1.2 MB</p>
+            <div class="requisitos">
+                <strong>Configuración recomendada:</strong> Configurar tecla para abrir menú (M por defecto)
+            </div>
+            <a href="mods/Xaeros_Minimap_25.2.6_Forge_1.18.2.jar" class="download-btn" download="Xaeros_Minimap_25.2.6.jar">Descargar Xaero's Minimap</a>
+        </div>
+        
+        <div class="mod-card">
+            <h2 class="mod-title">Simple Voice Chat</h2>
+            <p>Sistema de chat de voz por proximidad que permite comunicación con otros jugadores cercanos en el juego.</p>
+            <p><strong>Versión Minecraft:</strong> 1.18.2</p>
+            <p><strong>Tamaño:</strong> 2.5 MB</p>
+            <div class="requisitos">
+                <strong>Nota:</strong> Requiere auriculares/micrófono. Configura tus dispositivos de audio en los ajustes.
+            </div>
+            <a href="mods/voicechat-forge-1.18.2-2.4.24.jar" class="download-btn" download="voicechat-forge-1.18.2.jar">Descargar Voice Chat</a>
+        </div>
+        
+        <div class="mod-card" style="background-color: #1e3a1e;">
+            <h2 style="color: #55FF55;">Instrucciones de Instalación</h2>
+            <ol style="text-align: left; padding-left: 20px;">
+                <li>Descarga todos los archivos .jar</li>
+                <li>Abre la carpeta de Minecraft</li>
+                <li>Ve a la carpeta "mods" (si no existe, créala)</li>
+                <li>Copia los archivos .jar descargados aquí</li>
+                <li>Inicia Minecraft con Forge instalado</li>
+                <li>¡Conéctate al servidor!</li>
+            </ol>
+        </div>
+        
+        <footer>
+            <p>Versión del servidor: Minecraft 1.16.5 (ForgeOptiFine)</p>
+        </footer>
+    </div>
+</body>
+</html>
