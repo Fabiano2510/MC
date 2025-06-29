@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mods Esenciales para Servidor Minecraft</title>
+    <title>Mods Requeridos - Servidor Minecraft 1.16.5</title>
     <style>
         body {
             font-family: 'Minecraft', Arial, sans-serif;
@@ -20,131 +20,178 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            border: 2px solid #555;
         }
         
         h1 {
             color: #55FF55;
-            text-shadow: 2px 2px 4px #000000;
+            text-shadow: 3px 3px 6px #000000;
+            margin-bottom: 10px;
+        }
+        
+        .version-badge {
+            background-color: #5555FF;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 20px;
         }
         
         .mod-card {
-            background-color: #2d2d2d;
-            border: 2px solid #555555;
+            background-color: #252525;
+            border: 2px solid #444;
             border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
+            padding: 18px;
+            margin: 20px 0;
             text-align: left;
+            transition: transform 0.2s;
+        }
+        
+        .mod-card:hover {
+            transform: translateY(-3px);
+            border-color: #55FF55;
         }
         
         .mod-title {
             color: #FFAA00;
-            font-size: 1.5em;
+            font-size: 1.6em;
             margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
         }
         
         .download-btn {
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 10px 0;
+            margin: 15px 0 5px 0;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            font-weight: bold;
         }
         
         .download-btn:hover {
-            background-color: #45a049;
+            background-color: #3e8e41;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
         }
         
         .requisitos {
-            background-color: #333;
-            padding: 10px;
+            background-color: rgba(85, 85, 85, 0.3);
+            padding: 12px;
             border-radius: 5px;
-            margin-top: 10px;
+            margin-top: 12px;
             font-size: 0.9em;
+            border-left: 4px solid #55FF55;
         }
         
         footer {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 0.8em;
             color: #aaaaaa;
+            border-top: 1px solid #444;
+            padding-top: 15px;
         }
         
         .advertencia {
             color: #FF5555;
             font-weight: bold;
-            margin: 20px 0;
-            padding: 10px;
-            background-color: rgba(255, 0, 0, 0.1);
+            margin: 25px 0;
+            padding: 12px;
+            background-color: rgba(255, 0, 0, 0.15);
             border-radius: 5px;
+            border: 1px dashed #FF5555;
+        }
+        
+        .info-box {
+            background-color: #1e3a1e;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: left;
+        }
+        
+        .info-box h2 {
+            color: #55FF55;
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Mods Esenciales para Nuestro Servidor</h1>
-        <p>Descarga estos mods necesarios para conectarte a nuestro servidor Minecraft...</p>
+        <h1>MODS REQUERIDOS</h1>
+        <div class="version-badge">Versión del servidor: Minecraft 1.16.5 (Forge)</div>
+        <p>Para jugar en nuestro servidor, necesitas instalar los siguientes mods:</p>
         
         <div class="advertencia">
-            ⚠️ Asegúrate de instalar estos mods en la carpeta "mods" de tu cliente Minecraft
+            ⚠️ IMPORTANTE: Todos los mods deben ser instalados en la versión <strong>1.16.5 de Minecraft</strong> con <strong>Forge</strong>
         </div>
         
+        <!-- SecurityCraft -->
         <div class="mod-card">
             <h2 class="mod-title">SecurityCraft v1.10</h2>
-            <p>Añade sistemas de seguridad avanzados como cámaras, alarmas, puertas blindadas y sistemas de protección para tus construcciones.</p>
-            <p><strong>Versión Minecraft:</strong> 1.16.5 (Forge)</p>
-            <p><strong>Tamaño:</strong> 3.7 MB</p>
+            <p>Mod de seguridad que añade cámaras, alarmas, puertas blindadas y sistemas de protección avanzados para proteger tus construcciones.</p>
+            <p><strong>Archivo:</strong> [1.16.5] SecurityCraft v1.10.jar</p>
+            <p><strong>Tamaño:</strong> 1.5 MB</p>
             <div class="requisitos">
-                <strong>Requisitos:</strong> Minecraft Forge 40.1.0 o superior
+                <strong>Requisitos:</strong> Minecraft Forge 36.2.0 o superior recomendado
             </div>
-            <a href="mods/[1.16.5] SecurityCraft v1.10.jar.jar" class="download-btn" download="SecurityCraft-v1.10.jar">Descargar SecurityCraft</a>
+            <a href="mods/[1.16.5] SecurityCraft v1.10.jar" class="download-btn" download="[1.16.5] SecurityCraft v1.10.jar">Descargar SecurityCraft</a>
         </div>
         
+        <!-- Xaero's Minimap -->
         <div class="mod-card">
             <h2 class="mod-title">Xaero's Minimap 25.2.6</h2>
-            <p>Un minimapa ligero y configurable que muestra tu ubicación, entidades cercanas y puntos de interés marcados.</p>
-            <p><strong>Versión Minecraft:</strong> 1.16.5</p>
-            <p><strong>Tamaño:</strong> 1.2 MB</p>
+            <p>Minimapa ligero que muestra tu ubicación, entidades cercanas y permite marcar waypoints. Configurable con tecla 'M'.</p>
+            <p><strong>Archivo:</strong> Xaeros_Minimap_25.2.6_Forge_1.16.5.jar</p>
+            <p><strong>Tamaño:</strong> 1.1 MB</p>
             <div class="requisitos">
-                <strong>Configuración recomendada:</strong> Configurar tecla para abrir menú (M por defecto)
+                <strong>Configuración:</strong> Presiona 'M' para abrir el menú de configuración
             </div>
-            <a href="mods/Xaeros_Minimap_25.2.6_Forge_1.16.5.jar" class="download-btn" download="Xaeros_Minimap_25.2.6.jar">Descargar Xaero's Minimap</a>
+            <a href="mods/Xaeros_Minimap_25.2.6_Forge_1.16.5.jar" class="download-btn" download="Xaeros_Minimap_25.2.6_Forge_1.16.5.jar">Descargar Xaero's Minimap</a>
         </div>
         
+        <!-- Voice Chat -->
         <div class="mod-card">
-            <h2 class="mod-title">Simple Voice Chat</h2>
-            <p>Sistema de chat de voz por proximidad que permite comunicación con otros jugadores cercanos en el juego.</p>
-            <p><strong>Versión Minecraft:</strong> 1.16.5</p>
-            <p><strong>Tamaño:</strong> 2.5 MB</p>
+            <h2 class="mod-title">Simple Voice Chat 2.5.32</h2>
+            <p>Sistema de chat de voz por proximidad con excelente calidad de audio y configuración de grupos.</p>
+            <p><strong>Archivo:</strong> voicechat-forge-1.16.5-2.5.32.jar</p>
+            <p><strong>Tamaño:</strong> 2.3 MB</p>
             <div class="requisitos">
-                <strong>Nota:</strong> Requiere auriculares/micrófono. Configura tus dispositivos de audio en los ajustes.
+                <strong>Nota:</strong> Requiere micrófono y auriculares. Configura tus dispositivos en los ajustes.
             </div>
-            <a href="mods/voicechat-forge-1.16.5-2.5.32.jar" class="download-btn" download="voicechat-forge-1.18.2.jar">Descargar Voice Chat</a>
+            <a href="mods/voicechat-forge-1.16.5-2.5.32.jar" class="download-btn" download="voicechat-forge-1.16.5-2.5.32.jar">Descargar Voice Chat</a>
         </div>
         
-        <div class="mod-card" style="background-color: #1e3a1e;">
-            <h2 style="color: #55FF55;">Instrucciones de Instalación</h2>
-            <ol style="text-align: left; padding-left: 20px;">
-                <li>Descarga todos los archivos .jar</li>
-                <li>Abre la carpeta de Minecraft</li>
-                <li>Ve a la carpeta "mods" (si no existe, créala)</li>
-                <li>Copia los archivos .jar descargados aquí</li>
-                <li>Inicia Minecraft con Forge instalado</li>
-                <li>¡Conéctate al servidor!</li>
+        <!-- Instrucciones -->
+        <div class="info-box">
+            <h2>📌 Cómo instalar los mods</h2>
+            <ol>
+                <li><strong>Descarga</strong> todos los archivos .jar haciendo clic en los botones arriba</li>
+                <li><strong>Abre</strong> la carpeta de Minecraft (presiona Win+R y escribe <code>%appdata%\.minecraft</code>)</li>
+                <li><strong>Crea</strong> una carpeta llamada "mods" si no existe</li>
+                <li><strong>Copia</strong> los archivos .jar descargados a la carpeta "mods"</li>
+                <li><strong>Inicia</strong> Minecraft con el perfil de Forge para 1.16.5</li>
+                <li><strong>Conéctate</strong> a nuestro servidor y disfruta</li>
             </ol>
+            <p><em>Problemas? Asegúrate de tener la versión correcta de Forge para Minecraft 1.16.5</em></p>
         </div>
         
         <footer>
-            <p>Versión del servidor: Minecraft 1.16.5 (ForgeOptiFine)</p>
+            <p>© 2023 Servidor Minecraft. Todos los mods son propiedad de sus respectivos creadores.</p>
+            <p>Configuración recomendada: Forge 36.2.34 para Minecraft 1.16.5</p>
         </footer>
     </div>
 </body>
