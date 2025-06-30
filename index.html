@@ -32,16 +32,58 @@
             background-position: center;
         }
         
+        .server-ip-banner {
+            background: rgba(46, 125, 50, 0.9);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            position: sticky;
+            top: 0;
+            z-index: 101;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .server-ip-banner strong {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .copy-btn-banner {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: var(--accent);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .copy-btn-banner:hover {
+            background-color: rgba(255, 193, 7, 0.5);
+        }
+        
         header {
             background: rgba(0, 0, 0, 0.8);
             padding: 1rem 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
-            top: 0;
+            top: 48px;
             z-index: 100;
             backdrop-filter: blur(10px);
         }
         
+        /* Resto del CSS permanece igual */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -374,6 +416,22 @@
         }
         
         @media (max-width: 768px) {
+            .server-ip-banner {
+                font-size: 0.9rem;
+                padding: 8px 0;
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .copy-btn-banner {
+                width: 90%;
+                justify-content: center;
+            }
+            
+            header {
+                top: 88px;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -397,6 +455,17 @@
     </style>
 </head>
 <body>
+    <!-- Banner con la IP del servidor -->
+    <div class="server-ip-banner">
+        <div>
+            <i class="fas fa-server"></i> 
+            <strong>IP del Servidor:</strong> terreneitorsBETA1.aternos.me:27875
+        </div>
+        <button class="copy-btn-banner" onclick="copyToClipboard('terreneitorsBETA1.aternos.me:27875')">
+            <i class="far fa-copy"></i> Copiar IP
+        </button>
+    </div>
+
     <header>
         <div class="container">
             <nav>
@@ -425,6 +494,7 @@
         </div>
     </section>
 
+    <!-- Resto del contenido permanece igual -->
     <section id="about">
         <div class="container">
             <div class="section-title">
