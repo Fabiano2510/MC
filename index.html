@@ -3,316 +3,602 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modpack 1.16.5 | Servidor Minecraft</title>
+    <title>Terreneitors BETA | Servidor Minecraft</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --mc-green: #55FF55;
-            --mc-dark: #1a1a1a;
-            --mc-orange: #FFAA00;
-            --mc-red: #FF5555;
-            --mc-blue: #5555FF;
-            --mc-purple: #AA00AA;
+            --primary: #4CAF50;
+            --secondary: #2E7D32;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --accent: #FFC107;
+            --danger: #F44336;
         }
         
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Minecraft', Arial, sans-serif;
-            background-color: var(--mc-dark);
+            background-color: #121212;
             color: #e0e0e0;
-            margin: 0;
-            padding: 15px;
-            text-align: center;
-            background-image: url('https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-background-behavior-1800x1012.jpg');
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-attachment: fixed;
-            line-height: 1.5;
+            background-position: center;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
         
         .container {
-            max-width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.85);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-            border: 2px solid #555;
+            padding: 0 20px;
         }
         
-        h1 {
-            color: var(--mc-green);
-            text-shadow: 2px 2px 5px #000000;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            word-wrap: break-word;
-        }
-        
-        .version-badge {
-            background-color: var(--mc-blue);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        
-        .mod-grid {
+        nav {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 20px 0;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .server-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .info-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--primary);
+        }
+        
+        .info-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .mods-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
         
         .mod-card {
-            background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
-            border: 2px solid #444;
+            background: rgba(30, 30, 30, 0.7);
             border-radius: 10px;
-            padding: 15px;
-            text-align: left;
-            width: 100%;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(76, 175, 80, 0.2);
         }
         
-        .mod-title {
-            color: var(--mc-orange);
+        .mod-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+        
+        .mod-header {
+            padding: 20px;
+            background: rgba(46, 125, 50, 0.2);
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .mod-header h3 {
+            color: var(--primary);
             font-size: 1.3rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #444;
-            word-wrap: break-word;
+            margin-bottom: 5px;
         }
         
-        .mod-category {
-            color: var(--mc-purple);
-            font-weight: bold;
-            margin: 5px 0;
-            font-size: 0.8rem;
-        }
-        
-        .download-btn {
-            background: linear-gradient(to bottom, #4CAF50, #3e8e41);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            text-align: center;
-            text-decoration: none;
-            display: block;
+        .mod-header .version {
+            color: #aaa;
             font-size: 0.9rem;
-            margin: 15px 0 5px 0;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: all 0.2s;
-            font-weight: bold;
-            width: 100%;
-            text-shadow: 1px 1px 2px #000;
-            border: 1px solid #5cb85c;
         }
         
-        .download-btn:hover {
-            background: linear-gradient(to bottom, #3e8e41, #2d6b2f);
+        .mod-body {
+            padding: 20px;
         }
         
-        .requisitos {
-            background-color: rgba(85, 85, 85, 0.3);
-            padding: 10px;
-            border-radius: 6px;
-            margin: 12px 0;
-            font-size: 0.85rem;
-            border-left: 4px solid var(--mc-green);
+        .mod-body p {
+            margin-bottom: 20px;
+            color: #ccc;
         }
         
-        .requisitos ul {
-            padding-left: 20px;
-            margin: 5px 0;
+        .mod-footer {
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
         
-        .file-info {
-            font-family: 'Courier New', monospace;
-            background-color: #333;
-            padding: 3px 6px;
-            border-radius: 3px;
-            font-size: 0.8rem;
-            color: #ddd;
-            word-break: break-all;
+        .mod-btn {
             display: inline-block;
-            margin: 3px 0;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
         }
         
-        .advertencia {
-            color: var(--mc-red);
-            font-weight: bold;
-            margin: 20px 0;
-            padding: 12px;
-            background-color: rgba(255, 0, 0, 0.15);
-            border-radius: 8px;
-            border: 1px dashed var(--mc-red);
-            font-size: 0.95rem;
+        .mod-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
         }
         
-        .info-box {
-            background: linear-gradient(145deg, #1e3a1e, #152815);
+        .server-ip {
+            background: rgba(46, 125, 50, 0.2);
             padding: 15px;
-            border-radius: 10px;
-            margin: 25px 0;
-            text-align: left;
-            border: 1px solid #2d6b2f;
+            border-radius: 8px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid var(--primary);
         }
         
-        .info-box h2 {
-            color: var(--mc-green);
-            margin-top: 0;
+        .server-ip h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .ip-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
             font-size: 1.2rem;
-            border-bottom: 1px solid #2d6b2f;
-            padding-bottom: 8px;
+            color: var(--accent);
+            margin: 10px 0;
+            word-break: break-all;
         }
         
-        .info-box ol, .info-box ul {
-            padding-left: 20px;
+        .copy-btn {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: var(--accent);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .copy-btn:hover {
+            background-color: rgba(255, 193, 7, 0.4);
         }
         
         footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #aaaaaa;
-            border-top: 1px solid #444;
-            padding-top: 15px;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 40px 0;
+            text-align: center;
         }
         
-        @media (min-width: 768px) {
-            .container {
-                max-width: 800px;
-                padding: 25px;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: #aaa;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
             
-            .mod-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+            .hero h2 {
+                font-size: 2rem;
             }
             
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .download-btn {
-                padding: 12px 20px;
+            .hero p {
                 font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .server-info {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>MODPACK 1.16.5</h1>
-        <div class="version-badge">Forge 36.2.34</div>
-        <p>Descarga estos mods esenciales para nuestro servidor:</p>
-        
-        <div class="advertencia">
-            ⚠️ Usa EXACTAMENTE estas versiones para evitar problemas
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-cubes" style="color: var(--primary); font-size: 1.8rem;"></i>
+                    <h1>Terreneitors BETA</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Inicio</a>
+                    <a href="#about">Sobre el Servidor</a>
+                    <a href="#mods" class="active">Mods</a>
+                    <a href="#join">Cómo Unirse</a>
+                </div>
+            </nav>
         </div>
-        
-        <div class="mod-grid">
-            <!-- SecurityCraft -->
-            <div class="mod-card">
-                <h2 class="mod-title">SecurityCraft v1.10</h2>
-                <div class="mod-category">🔒 Seguridad</div>
-                <p>Sistema de seguridad con cámaras, alarmas y puertas blindadas.</p>
-                <p><span class="file-info">[1.16.5] SecurityCraft v1.10.jar</span></p>
-                <div class="requisitos">
-                    <strong>Tecla:</strong> L para bloquear
-                </div>
-                <a href="mods/[1.16.5] SecurityCraft v1.10.jar" class="download-btn" download>Descargar</a>
-            </div>
-            
-            <!-- Xaero's Minimap -->
-            <div class="mod-card">
-                <h2 class="mod-title">Xaero's Minimap</h2>
-                <div class="mod-category">🗺️ Mapa</div>
-                <p>Minimapa con ubicación y waypoints.</p>
-                <p><span class="file-info">Xaeros_Minimap_25.2.6_Forge_1.16.5.jar</span></p>
-                <div class="requisitos">
-                    <strong>Teclas:</strong> M (menú), X (waypoints)
-                </div>
-                <a href="mods/Xaeros_Minimap_25.2.6_Forge_1.16.5.jar" class="download-btn" download>Descargar</a>
-            </div>
-            
-            <!-- Voice Chat -->
-            <div class="mod-card">
-                <h2 class="mod-title">Voice Chat</h2>
-                <div class="mod-category">🎤 Comunicación</div>
-                <p>Chat de voz por proximidad.</p>
-                <p><span class="file-info">voicechat-forge-1.16.5-2.5.32.jar</span></p>
-                <div class="requisitos">
-                    <strong>Tecla:</strong> CAPS LOCK para hablar
-                </div>
-                <a href="mods/voicechat-forge-1.16.5-2.5.32.jar" class="download-btn" download>Descargar</a>
-            </div>
-            
-            <!-- Traveler's Backpack -->
-            <div class="mod-card">
-                <h2 class="mod-title">Traveler's Backpack</h2>
-                <div class="mod-category">🎒 Almacenamiento</div>
-                <p>Mochilas con 54 slots y funciones especiales.</p>
-                <p><span class="file-info">TravelersBackpack-1.16.5-5.4.51.jar</span></p>
-                <div class="requisitos">
-                    <strong>Click derecho</strong> para abrir
-                </div>
-                <a href="mods/TravelersBackpack-1.16.5-5.4.51.jar" class="download-btn" download>Descargar</a>
-            </div>
-            
-            <!-- JEI -->
-            <div class="mod-card">
-                <h2 class="mod-title">JEI</h2>
-                <div class="mod-category">📖 Recetas</div>
-                <p>Muestra todas las recetas del juego.</p>
-                <p><span class="file-info">jei-1.16.5-7.8.0.1013.jar</span></p>
-                <div class="requisitos">
-                    <strong>Teclas:</strong> R (recetas), U (usos)
-                </div>
-                <a href="mods/jei-1.16.5-7.8.0.1013.jar" class="download-btn" download>Descargar</a>
-            </div>
-            
-            <!-- Corpse -->
-            <div class="mod-card">
-                <h2 class="mod-title">Corpse</h2>
-                <div class="mod-category">💀 Muerte</div>
-                <p>Crea un cadáver con tus items al morir.</p>
-                <p><span class="file-info">corpse-1.16.5-1.0.6.jar</span></p>
-                <div class="requisitos">
-                    <strong>Visible</strong> por 15 minutos
-                </div>
-                <a href="mods/corpse-1.16.5-1.0.6.jar" class="download-btn" download>Descargar</a>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="container">
+                <h2>Bienvenido a Terreneitors BETA</h2>
+                <p>Un servidor de Minecraft con mods increíbles, comunidad activa y aventuras épicas. ¡Únete ahora y forma parte de nuestra comunidad!</p>
+                <a href="#join" class="btn">Cómo Unirse</a>
+                <a href="#mods" class="btn btn-outline">Ver Mods</a>
             </div>
         </div>
-        
-        <div class="info-box">
-            <h2>📌 Cómo instalar</h2>
-            <ol>
-                <li>Descarga todos los archivos .jar</li>
-                <li>Abre tu carpeta de Minecraft</li>
-                <li>Ve a la carpeta "mods" (si no existe, créala)</li>
-                <li>Copia los archivos aquí</li>
-                <li>Inicia Minecraft con Forge 1.16.5</li>
-            </ol>
-            
-            <div class="requisitos" style="margin-top: 15px;">
-                <strong>Ruta de la carpeta:</strong>
-                <ul>
-                    <li><strong>Windows:</strong> %appdata%\.minecraft\mods</li>
-                    <li><strong>Mac:</strong> ~/Library/Application Support/minecraft/mods</li>
-                </ul>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre el Servidor</h2>
+                <p>Descubre lo que hace especial a nuestro servidor de Minecraft</p>
+            </div>
+            <div class="server-info">
+                <div class="info-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Protegido</h3>
+                    <p>Nuestro servidor cuenta con protección contra hacks y griefers para garantizar una experiencia justa para todos.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Comunidad Activa</h3>
+                    <p>Únete a nuestra creciente comunidad de jugadores amigables y colaborativos.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Mods Seleccionados</h3>
+                    <p>Colección cuidadosamente seleccionada de los mejores mods para una experiencia de juego única.</p>
+                </div>
             </div>
         </div>
+    </section>
+
+    <section id="mods" style="background-color: rgba(0, 0, 0, 0.9);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Mods</h2>
+                <p>Descarga e instala estos mods necesarios para jugar en nuestro servidor</p>
+            </div>
+            <div class="mods-container">
+                <div class="mod-card">
+                    <div class="mod-header">
+                        <h3>SecurityCraft</h3>
+                        <span class="version">v1.10</span>
+                    </div>
+                    <div class="mod-body">
+                        <p>Añade sistemas de seguridad avanzados como cámaras, alarmas y puertas blindadas para proteger tus construcciones.</p>
+                    </div>
+                    <div class="mod-footer">
+                        <a href="mods/[1.16.5] SecurityCraft v1.10.jar" class="mod-btn" download>Descargar</a>
+                    </div>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-header">
+                        <h3>Xaero's Minimap</h3>
+                        <span class="version">25.2.6</span>
+                    </div>
+                    <div class="mod-body">
+                        <p>Minimapa esencial que muestra tu ubicación, waypoints y entidades cercanas. Altamente configurable.</p>
+                    </div>
+                    <div class="mod-footer">
+                        <a href="mods/Xaeros_Minimap_25.2.6_Forge_1.16.5.jar" class="mod-btn" download>Descargar</a>
+                    </div>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-header">
+                        <h3>Simple Voice Chat</h3>
+                        <span class="version">2.5.32</span>
+                    </div>
+                    <div class="mod-body">
+                        <p>Chat de voz por proximidad con excelente calidad de audio. Perfecto para trabajar en equipo.</p>
+                    </div>
+                    <div class="mod-footer">
+                        <a href="mods/voicechat-forge-1.16.5-2.5.32.jar" class="mod-btn" download>Descargar</a>
+                    </div>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-header">
+                        <h3>Traveler's Backpack</h3>
+                        <span class="version">5.4.51</span>
+                    </div>
+                    <div class="mod-body">
+                        <p>Mochilas funcionales con almacenamiento amplio, cama portátil y soporte para tanques de fluidos.</p>
+                    </div>
+                    <div class="mod-footer">
+                        <a href="mods/TravelersBackpack-1.16.5-5.4.51.jar" class="mod-btn" download>Descargar</a>
+                    </div>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-header">
+                        <h3>JEI</h3>
+                        <span class="version">7.8.0.1013</span>
+                    </div>
+                    <div class="mod-body">
+                        <p>Just Enough Items - Muestra todas las recetas del juego y permite búsqueda avanzada de items.</p>
+                    </div>
+                    <div class="mod-footer">
+                        <a href="mods/jei-1.16.5-7.8.0.1013.jar" class="mod-btn" download>Descargar</a>
+                    </div>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-header">
+                        <h3>Corpse</h3>
+                        <span class="version">1.0.6</span>
+                    </div>
+                    <div class="mod-body">
+                        <p>Crea un cadáver con tus items al morir, visible para otros jugadores. Evita perder items al morir lejos.</p>
+                    </div>
+                    <div class="mod-footer">
+                        <a href="mods/corpse-1.16.5-1.0.6.jar" class="mod-btn" download>Descargar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join">
+        <div class="container">
+            <div class="section-title">
+                <h2>Únete al Servidor</h2>
+                <p>Sigue estos sencillos pasos para comenzar a jugar</p>
+            </div>
+            <div class="server-ip">
+                <h3>Dirección del Servidor:</h3>
+                <div class="ip-box">terreneitorsBETA1.aternos.me:27875</div>
+                <button class="copy-btn" onclick="copyToClipboard('terreneitorsBETA1.aternos.me:27875')">Copiar IP</button>
+            </div>
+            <div class="server-info">
+                <div class="info-card">
+                    <i class="fas fa-download"></i>
+                    <h3>1. Instala los Mods</h3>
+                    <p>Descarga todos los mods listados arriba y colócalos en tu carpeta de mods de Minecraft.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-plug"></i>
+                    <h3>2. Configura Forge</h3>
+                    <p>Asegúrate de usar Minecraft 1.16.5 con Forge versión 36.2.34 o superior.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-server"></i>
+                    <h3>3. Conéctate</h3>
+                    <p>Agrega la dirección del servidor y haz clic en "Conectar" para unirte a la aventura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cubes" style="color: var(--primary); font-size: 1.8rem;"></i>
+                <h1>Terreneitors BETA</h1>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2023 Terreneitors BETA. Todos los derechos reservados.<br>
+            Minecraft es una marca registrada de Mojang Studios. No afiliado.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('IP copiada al portapapeles: ' + text);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+            });
+        }
         
-        <footer>
-            <p>© 2023 Servidor Minecraft. Mods propiedad de sus creadores.</p>
-            <p>Forge 36.2.34 | Minecraft 1.16.5</p>
-        </footer>
-    </div>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
