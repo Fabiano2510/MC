@@ -3,195 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mods Requeridos - Servidor Minecraft 1.16.5</title>
+    <title>Modpack 1.16.5 | Servidor Minecraft</title>
     <style>
+        :root {
+            --mc-green: #55FF55;
+            --mc-dark: #1a1a1a;
+            --mc-orange: #FFAA00;
+            --mc-red: #FF5555;
+            --mc-blue: #5555FF;
+            --mc-purple: #AA00AA;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Minecraft', Arial, sans-serif;
-            background-color: #1a1a1a;
+            background-color: var(--mc-dark);
             color: #e0e0e0;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             background-image: url('https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-background-behavior-1800x1012.jpg');
             background-size: cover;
             background-attachment: fixed;
+            line-height: 1.5;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
             border: 2px solid #555;
         }
         
         h1 {
-            color: #55FF55;
-            text-shadow: 3px 3px 6px #000000;
-            margin-bottom: 10px;
+            color: var(--mc-green);
+            text-shadow: 2px 2px 5px #000000;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            word-wrap: break-word;
         }
         
         .version-badge {
-            background-color: #5555FF;
+            background-color: var(--mc-blue);
             color: white;
-            padding: 3px 10px;
+            padding: 5px 12px;
             border-radius: 15px;
-            font-size: 0.9em;
+            font-size: 0.9rem;
             display: inline-block;
             margin-bottom: 20px;
-        }
-        
-        .mod-card {
-            background-color: #252525;
-            border: 2px solid #444;
-            border-radius: 8px;
-            padding: 18px;
-            margin: 20px 0;
-            text-align: left;
-            transition: transform 0.2s;
-        }
-        
-        .mod-card:hover {
-            transform: translateY(-3px);
-            border-color: #55FF55;
-        }
-        
-        .mod-title {
-            color: #FFAA00;
-            font-size: 1.6em;
-            margin-top: 0;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #444;
-            padding-bottom: 8px;
-        }
-        
-        .download-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 15px 0 5px 0;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s;
             font-weight: bold;
         }
         
+        .mod-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .mod-card {
+            background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+            border: 2px solid #444;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: left;
+            width: 100%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mod-title {
+            color: var(--mc-orange);
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #444;
+            word-wrap: break-word;
+        }
+        
+        .mod-category {
+            color: var(--mc-purple);
+            font-weight: bold;
+            margin: 5px 0;
+            font-size: 0.8rem;
+        }
+        
+        .download-btn {
+            background: linear-gradient(to bottom, #4CAF50, #3e8e41);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            margin: 15px 0 5px 0;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: bold;
+            width: 100%;
+            text-shadow: 1px 1px 2px #000;
+            border: 1px solid #5cb85c;
+        }
+        
         .download-btn:hover {
-            background-color: #3e8e41;
-            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            background: linear-gradient(to bottom, #3e8e41, #2d6b2f);
         }
         
         .requisitos {
             background-color: rgba(85, 85, 85, 0.3);
+            padding: 10px;
+            border-radius: 6px;
+            margin: 12px 0;
+            font-size: 0.85rem;
+            border-left: 4px solid var(--mc-green);
+        }
+        
+        .requisitos ul {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+        
+        .file-info {
+            font-family: 'Courier New', monospace;
+            background-color: #333;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: #ddd;
+            word-break: break-all;
+            display: inline-block;
+            margin: 3px 0;
+        }
+        
+        .advertencia {
+            color: var(--mc-red);
+            font-weight: bold;
+            margin: 20px 0;
             padding: 12px;
-            border-radius: 5px;
-            margin-top: 12px;
-            font-size: 0.9em;
-            border-left: 4px solid #55FF55;
+            background-color: rgba(255, 0, 0, 0.15);
+            border-radius: 8px;
+            border: 1px dashed var(--mc-red);
+            font-size: 0.95rem;
+        }
+        
+        .info-box {
+            background: linear-gradient(145deg, #1e3a1e, #152815);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: left;
+            border: 1px solid #2d6b2f;
+        }
+        
+        .info-box h2 {
+            color: var(--mc-green);
+            margin-top: 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #2d6b2f;
+            padding-bottom: 8px;
+        }
+        
+        .info-box ol, .info-box ul {
+            padding-left: 20px;
         }
         
         footer {
-            margin-top: 40px;
-            font-size: 0.8em;
+            margin-top: 30px;
+            font-size: 0.8rem;
             color: #aaaaaa;
             border-top: 1px solid #444;
             padding-top: 15px;
         }
         
-        .advertencia {
-            color: #FF5555;
-            font-weight: bold;
-            margin: 25px 0;
-            padding: 12px;
-            background-color: rgba(255, 0, 0, 0.15);
-            border-radius: 5px;
-            border: 1px dashed #FF5555;
-        }
-        
-        .info-box {
-            background-color: #1e3a1e;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 25px 0;
-            text-align: left;
-        }
-        
-        .info-box h2 {
-            color: #55FF55;
-            margin-top: 0;
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px;
+                padding: 25px;
+            }
+            
+            .mod-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .download-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>MODS REQUERIDOS</h1>
-        <div class="version-badge">Versión del servidor: Minecraft 1.16.5 (Forge)</div>
-        <p>Para jugar en nuestro servidor, necesitas instalar los siguientes mods:</p>
+        <h1>MODPACK 1.16.5</h1>
+        <div class="version-badge">Forge 36.2.34</div>
+        <p>Descarga estos mods esenciales para nuestro servidor:</p>
         
         <div class="advertencia">
-            ⚠️ IMPORTANTE: Todos los mods deben ser instalados en la versión <strong>1.16.5 de Minecraft</strong> con <strong>Forge</strong>
+            ⚠️ Usa EXACTAMENTE estas versiones para evitar problemas
         </div>
         
-        <!-- SecurityCraft -->
-        <div class="mod-card">
-            <h2 class="mod-title">SecurityCraft v1.10</h2>
-            <p>Mod de seguridad que añade cámaras, alarmas, puertas blindadas y sistemas de protección avanzados para proteger tus construcciones.</p>
-            <p><strong>Archivo:</strong> [1.16.5] SecurityCraft v1.10.jar</p>
-            <p><strong>Tamaño:</strong> 1.5 MB</p>
-            <div class="requisitos">
-                <strong>Requisitos:</strong> Minecraft Forge 36.2.0 o superior recomendado
+        <div class="mod-grid">
+            <!-- SecurityCraft -->
+            <div class="mod-card">
+                <h2 class="mod-title">SecurityCraft v1.10</h2>
+                <div class="mod-category">🔒 Seguridad</div>
+                <p>Sistema de seguridad con cámaras, alarmas y puertas blindadas.</p>
+                <p><span class="file-info">[1.16.5] SecurityCraft v1.10.jar</span></p>
+                <div class="requisitos">
+                    <strong>Tecla:</strong> L para bloquear
+                </div>
+                <a href="mods/[1.16.5] SecurityCraft v1.10.jar" class="download-btn" download>Descargar</a>
             </div>
-            <a href="mods/[1.16.5] SecurityCraft v1.10.jar" class="download-btn" download="[1.16.5] SecurityCraft v1.10.jar">Descargar SecurityCraft</a>
-        </div>
-        
-        <!-- Xaero's Minimap -->
-        <div class="mod-card">
-            <h2 class="mod-title">Xaero's Minimap 25.2.6</h2>
-            <p>Minimapa ligero que muestra tu ubicación, entidades cercanas y permite marcar waypoints. Configurable con tecla 'M'.</p>
-            <p><strong>Archivo:</strong> Xaeros_Minimap_25.2.6_Forge_1.16.5.jar</p>
-            <p><strong>Tamaño:</strong> 1.1 MB</p>
-            <div class="requisitos">
-                <strong>Configuración:</strong> Presiona 'M' para abrir el menú de configuración
+            
+            <!-- Xaero's Minimap -->
+            <div class="mod-card">
+                <h2 class="mod-title">Xaero's Minimap</h2>
+                <div class="mod-category">🗺️ Mapa</div>
+                <p>Minimapa con ubicación y waypoints.</p>
+                <p><span class="file-info">Xaeros_Minimap_25.2.6_Forge_1.16.5.jar</span></p>
+                <div class="requisitos">
+                    <strong>Teclas:</strong> M (menú), X (waypoints)
+                </div>
+                <a href="mods/Xaeros_Minimap_25.2.6_Forge_1.16.5.jar" class="download-btn" download>Descargar</a>
             </div>
-            <a href="mods/Xaeros_Minimap_25.2.6_Forge_1.16.5.jar" class="download-btn" download="Xaeros_Minimap_25.2.6_Forge_1.16.5.jar">Descargar Xaero's Minimap</a>
-        </div>
-        
-        <!-- Voice Chat -->
-        <div class="mod-card">
-            <h2 class="mod-title">Simple Voice Chat 2.5.32</h2>
-            <p>Sistema de chat de voz por proximidad con excelente calidad de audio y configuración de grupos.</p>
-            <p><strong>Archivo:</strong> voicechat-forge-1.16.5-2.5.32.jar</p>
-            <p><strong>Tamaño:</strong> 2.3 MB</p>
-            <div class="requisitos">
-                <strong>Nota:</strong> Requiere micrófono y auriculares. Configura tus dispositivos en los ajustes.
+            
+            <!-- Voice Chat -->
+            <div class="mod-card">
+                <h2 class="mod-title">Voice Chat</h2>
+                <div class="mod-category">🎤 Comunicación</div>
+                <p>Chat de voz por proximidad.</p>
+                <p><span class="file-info">voicechat-forge-1.16.5-2.5.32.jar</span></p>
+                <div class="requisitos">
+                    <strong>Tecla:</strong> CAPS LOCK para hablar
+                </div>
+                <a href="mods/voicechat-forge-1.16.5-2.5.32.jar" class="download-btn" download>Descargar</a>
             </div>
-            <a href="mods/voicechat-forge-1.16.5-2.5.32.jar" class="download-btn" download="voicechat-forge-1.16.5-2.5.32.jar">Descargar Voice Chat</a>
+            
+            <!-- Traveler's Backpack -->
+            <div class="mod-card">
+                <h2 class="mod-title">Traveler's Backpack</h2>
+                <div class="mod-category">🎒 Almacenamiento</div>
+                <p>Mochilas con 54 slots y funciones especiales.</p>
+                <p><span class="file-info">TravelersBackpack-1.16.5-5.4.51.jar</span></p>
+                <div class="requisitos">
+                    <strong>Click derecho</strong> para abrir
+                </div>
+                <a href="mods/TravelersBackpack-1.16.5-5.4.51.jar" class="download-btn" download>Descargar</a>
+            </div>
+            
+            <!-- JEI -->
+            <div class="mod-card">
+                <h2 class="mod-title">JEI</h2>
+                <div class="mod-category">📖 Recetas</div>
+                <p>Muestra todas las recetas del juego.</p>
+                <p><span class="file-info">jei-1.16.5-7.8.0.1013.jar</span></p>
+                <div class="requisitos">
+                    <strong>Teclas:</strong> R (recetas), U (usos)
+                </div>
+                <a href="mods/jei-1.16.5-7.8.0.1013.jar" class="download-btn" download>Descargar</a>
+            </div>
+            
+            <!-- Corpse -->
+            <div class="mod-card">
+                <h2 class="mod-title">Corpse</h2>
+                <div class="mod-category">💀 Muerte</div>
+                <p>Crea un cadáver con tus items al morir.</p>
+                <p><span class="file-info">corpse-1.16.5-1.0.6.jar</span></p>
+                <div class="requisitos">
+                    <strong>Visible</strong> por 15 minutos
+                </div>
+                <a href="mods/corpse-1.16.5-1.0.6.jar" class="download-btn" download>Descargar</a>
+            </div>
         </div>
         
-        <!-- Instrucciones -->
         <div class="info-box">
-            <h2>📌 Cómo instalar los mods</h2>
+            <h2>📌 Cómo instalar</h2>
             <ol>
-                <li><strong>Descarga</strong> todos los archivos .jar haciendo clic en los botones arriba</li>
-                <li><strong>Abre</strong> la carpeta de Minecraft (presiona Win+R y escribe <code>%appdata%\.minecraft</code>)</li>
-                <li><strong>Crea</strong> una carpeta llamada "mods" si no existe</li>
-                <li><strong>Copia</strong> los archivos .jar descargados a la carpeta "mods"</li>
-                <li><strong>Inicia</strong> Minecraft con el perfil de Forge para 1.16.5</li>
-                <li><strong>Conéctate</strong> a nuestro servidor y disfruta</li>
+                <li>Descarga todos los archivos .jar</li>
+                <li>Abre tu carpeta de Minecraft</li>
+                <li>Ve a la carpeta "mods" (si no existe, créala)</li>
+                <li>Copia los archivos aquí</li>
+                <li>Inicia Minecraft con Forge 1.16.5</li>
             </ol>
-            <p><em>Problemas? Asegúrate de tener la versión correcta de Forge para Minecraft 1.16.5</em></p>
+            
+            <div class="requisitos" style="margin-top: 15px;">
+                <strong>Ruta de la carpeta:</strong>
+                <ul>
+                    <li><strong>Windows:</strong> %appdata%\.minecraft\mods</li>
+                    <li><strong>Mac:</strong> ~/Library/Application Support/minecraft/mods</li>
+                </ul>
+            </div>
         </div>
         
         <footer>
-            <p>© 2023 Servidor Minecraft. Todos los mods son propiedad de sus respectivos creadores.</p>
-            <p>Configuración recomendada: Forge 36.2.34 para Minecraft 1.16.5</p>
+            <p>© 2023 Servidor Minecraft. Mods propiedad de sus creadores.</p>
+            <p>Forge 36.2.34 | Minecraft 1.16.5</p>
         </footer>
     </div>
 </body>
